@@ -6,27 +6,32 @@ Trigger script
 from pre_process import Doc2vec_wrapper, extract_mapped_doc2vecs
 import kmeans
 import gensim
+import dbscan
+import utils
 
 import time
 from datetime import timedelta
 import os
 
-SAVE_PATH = '../obj/tobacco/doc2vec/Doc2vec_wrapper_'
+
+ITER = '1'
+SAVE_PATH = '../obj/etd/DBSCAN/iter_' + ITER + '/dbscan_wrapper.sav'
 TB_PATH = '/mnt/ceph/shared/tobacco/data/1million_raw/'
+DOCVEC_PATH = '../obj/etd/doc2vec/abstracts_etd_doc2vec_all_docs30961_docs'
 
 def main():
     t1 = time.monotonic()
 
-    doc2vec_model = Doc2vec_wrapper(tb_path=TB_PATH, n_docs=len(os.listdir(TB_PATH)))
+    docvec_model = gensim.models.doc2vec.Doc2Vec.load(DOCVEC_PATH)
 
-    doc2vec_model.generate_tokens()
+    doc_vectors, keys = extract_mapped_doc2vecs(docvec_model)
 
-    doc2vec_model.load_model_and_build_vocab(vector_size=128, dm=1, dm_mean=1, dbow_words=0, epochs=10, workers=10, min_count=2)
+    model = dbscan.DBSCAN_wrapper(keys=keys, eps=, minPts=, metric='euclidean', n_jobs=10)
 
-    doc2vec_model.train()
+    model.fit_model(doc_vectors)
 
-    doc2vec_model.save_model(path=SAVE_PATH)
-
+    model.save_model(path=SAVE_PATH)
+    
     print("Time taken {}s".format(timedelta(time.monotonic() - t1)))
 
 main()

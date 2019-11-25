@@ -6,8 +6,7 @@ DBSCAN wrapper over sklearn
 
 '''
 
-import sklearn.cluster
-import DBSCAN
+from sklearn.cluster import DBSCAN
 import joblib
 
 import os

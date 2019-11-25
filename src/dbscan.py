@@ -30,5 +30,5 @@ class DBSCAN_wrapper:
     
     def save_model(self, path=''):
 
-        joblib.dump(self.model, path)
+        joblib.dump(self, path)
     

@@ -26,7 +26,7 @@ def main():
 
     doc_vectors, keys = extract_mapped_doc2vecs(docvec_model)
 
-    model = dbscan.DBSCAN_wrapper(keys=keys, eps=, minPts=, metric='euclidean', n_jobs=10)
+    model = dbscan.DBSCAN_wrapper(keys=keys, eps=7, minPts=4, metric='euclidean', n_jobs=10)
 
     model.fit_model(doc_vectors)
 

@@ -12,6 +12,7 @@ import time
 from datetime import timedelta
 
 from tqdm import tqdm
+from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score
 import numpy as np
 
 def compute_optimal_k_dists(data, k, num_pts=-1):
@@ -31,3 +32,15 @@ def compute_optimal_k_dists(data, k, num_pts=-1):
     print("Time taken {}s".format(timedelta(seconds=time.monotonic() - t1)))
 
     return k_dist
+
+def get_silhoutte_score(data, labels):
+
+    return silhouette_score(data, labels)
+
+def get_davies_bouldin_score(data, labels):
+
+    return davies_bouldin_score(data, labels)
+
+def get_calinski_harabasz_score(data, labels):
+
+    return calinski_harabasz_score(data, labels)

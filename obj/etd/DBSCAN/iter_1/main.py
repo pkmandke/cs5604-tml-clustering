@@ -8,7 +8,6 @@ import kmeans
 import gensim
 import dbscan
 import utils
-from agglo_clus import Agglo_clus
 
 import time
 from datetime import timedelta
@@ -16,7 +15,7 @@ import os
 
 
 ITER = '1'
-SAVE_PATH = '../obj/etd/agglo_clus/iter_' + ITER + '/agglo_clus_obj.sav'
+SAVE_PATH = '../obj/etd/DBSCAN/iter_' + ITER + '/dbscan_wrapper.sav'
 TB_PATH = '/mnt/ceph/shared/tobacco/data/1million_raw/'
 DOCVEC_PATH = '../obj/etd/doc2vec/abstracts_etd_doc2vec_all_docs30961_docs'
 
@@ -27,11 +26,11 @@ def main():
 
     doc_vectors, keys = extract_mapped_doc2vecs(docvec_model)
 
-    model = Agglo_clus(doc_vectors, keys, num_clus=500, linkage='ward', affinity='euclidean', iter_=ITER)
+    model = dbscan.DBSCAN_wrapper(keys=keys, eps=7., minPts=4, metric='euclidean', n_jobs=10)
 
-    model.clusterize()
+    model.fit_model(doc_vectors)
 
-    model.save(name=SAVE_PATH)
+    model.save_model(path=SAVE_PATH)
     
     print("Time taken {}s".format(timedelta(seconds=time.monotonic() - t1)))
 

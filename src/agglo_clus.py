@@ -32,4 +32,4 @@ class Agglo_clus:
         print("Done training in {}s".format(timedelta(seconds=time.monotonic() - t1)))
         
     def save(self, name='agglo_clus_1.sav'):
-        joblib.dump(self, '../obj/agglo_clus/iter_' + self.iter + '/' + name)
+        joblib.dump(self, name)

@@ -1,7 +1,8 @@
 # CS5604 Information Storage and Retrieval - Fall 2019
 
-Team: Text Analytics and Machine Learning
-Instructor: [Dr. Edward Fox](https://fox.cs.vt.edu/)
+**Team**: Text Analytics and Machine Learning
+
+**Instructor**: [Dr. Edward Fox](https://fox.cs.vt.edu/)
 
 **Update**: A beta version of the front-end website for querying both the ETD and Tobacco corpora is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)! It is running based on Elastic Search via Ceph on the Kubernetes cluster at [cs.vt.edu](cs.vt.edu).
 
@@ -36,7 +37,9 @@ We implement and evaluate the following clustering techniques for the ETD and/or
 # Authors
 
 [Prathamesh Mandke](https://pkmandke.github.io/) - I am the maintainer of this repository. 
+
 [Sharvari Chougule]()
+
 [Adheesh Juvekar]()
 
 # Acknowledgements

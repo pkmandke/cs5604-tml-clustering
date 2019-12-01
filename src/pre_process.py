@@ -107,9 +107,9 @@ class Doc2vec_wrapper:
         elif self.tb_path:
             self.train_corpus = list(self.__tobacco_data_gen())
 
-    def load_model_and_build_vocab(self, dm=1, dm_mean=1, vector_size=128, min_count=2, epochs=20, workers=1, dbow_words=0):
+    def load_model_and_build_vocab(self, dm=1, dm_mean=1, dm_concat=0, vector_size=128, min_count=2, epochs=20, workers=1, dbow_words=0):
 
-        self.model = gensim.models.doc2vec.Doc2Vec(vector_size=vector_size, dm=dm, dm_mean=dm_mean, min_count=min_count, dbow_words=dbow_words, epochs=epochs, workers=workers)
+        self.model = gensim.models.doc2vec.Doc2Vec(vector_size=vector_size, dm=dm, dm_concat=dm_concat, dm_mean=dm_mean, min_count=min_count, dbow_words=dbow_words, epochs=epochs, workers=workers)
         self.model.build_vocab(self.train_corpus)
 
     def train(self):

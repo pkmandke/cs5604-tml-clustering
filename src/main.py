@@ -1,38 +1,30 @@
 '''
 Trigger script
 '''
-
-
 from pre_process import Doc2vec_wrapper, extract_mapped_doc2vecs
 import kmeans
 import gensim
-import dbscan
-import utils
-from agglo_clus import Agglo_clus
 
 import time
 from datetime import timedelta
 import os
 
-
-ITER = '1'
-SAVE_PATH = '../obj/etd/agglo_clus/iter_' + ITER + '/agglo_clus_obj.sav'
+SAVE_PATH = '../obj/tobacco/doc2vec/Doc2vec_wrapper_'
 TB_PATH = '/mnt/ceph/shared/tobacco/data/1million_raw/'
-DOCVEC_PATH = '../obj/etd/doc2vec/abstracts_etd_doc2vec_all_docs30961_docs'
 
 def main():
     t1 = time.monotonic()
 
-    docvec_model = gensim.models.doc2vec.Doc2Vec.load(DOCVEC_PATH)
+    doc2vec_model = Doc2vec_wrapper(tb_path=TB_PATH, n_docs=len(os.listdir(TB_PATH)))
 
-    doc_vectors, keys = extract_mapped_doc2vecs(docvec_model)
+    doc2vec_model.generate_tokens()
 
-    model = Agglo_clus(doc_vectors, keys, num_clus=500, linkage='ward', affinity='euclidean', iter_=ITER)
+    doc2vec_model.load_model_and_build_vocab(vector_size=128, dm=1, dm_mean=1, dm_concat=0, dbow_words=0, epochs=2, workers=15, min_count=2)
 
-    model.clusterize()
+    doc2vec_model.train()
 
-    model.save(name=SAVE_PATH)
-    
-    print("Time taken {}s".format(timedelta(seconds=time.monotonic() - t1)))
+    doc2vec_model.save_model(path=SAVE_PATH)
+
+    print("Time taken {}s".format(timedelta(time.monotonic() - t1)))
 
 main()

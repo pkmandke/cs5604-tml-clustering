@@ -44,3 +44,7 @@ def get_davies_bouldin_score(data, labels):
 def get_calinski_harabasz_score(data, labels):
 
     return calinski_harabasz_score(data, labels)
+
+def get_average_docs_per_cluster(labels):
+
+    return sum([len(labels[labels == _]) for _ in list(set(labels))])/len(list(set(labels)))

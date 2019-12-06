@@ -46,5 +46,12 @@ def get_calinski_harabasz_score(data, labels):
     return calinski_harabasz_score(data, labels)
 
 def get_average_docs_per_cluster(labels):
+    sum_ = [len(labels[labels == _]) for _ in list(set(labels))]
 
-    return sum([len(labels[labels == _]) for _ in list(set(labels))])/len(list(set(labels)))
+    return sum(sum_)/len(list(set(labels)))
+
+def get_avg_std_docs_per_cluster(labels):
+    
+    labels = np.asarray([len(labels[labels == _]) for _ in list(set(labels))])
+    
+    return {'Mean': np.mean(labels), 'Standard Deviation': np.std(labels)}

@@ -4,7 +4,7 @@
 
 **Instructor**: [Dr. Edward Fox](https://fox.cs.vt.edu/)
 
-**Update [01/20/2020]**: The Text Analytics and Machine Learning Teams' report, code and presentations are now available on VtechWorks! Access the content at [this HTTPS URL](https://vtechworks.lib.vt.edu/handle/10919/96226).
+**Update [01/20/2020]**: The Text Analytics and Machine Learning Teams' report, code and presentations are now available on VTechWorks! Access the content at [this HTTPS URL](https://vtechworks.lib.vt.edu/handle/10919/96226).
 
 **Update [12/18/2020]**: A beta version of the front-end website for querying both the ETD and Tobacco corpora is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)! It is running based on Elastic Search via Ceph on the Kubernetes cluster in the [CS](https://www.cs.vt.edu/)@[VT](https://vt.edu/) VM.
 

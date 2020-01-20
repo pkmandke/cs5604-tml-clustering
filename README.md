@@ -4,7 +4,9 @@
 
 **Instructor**: [Dr. Edward Fox](https://fox.cs.vt.edu/)
 
-**Update**: A beta version of the front-end website for querying both the ETD and Tobacco corpora is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)! It is running based on Elastic Search via Ceph on the Kubernetes cluster in the [CS](https://www.cs.vt.edu/)@[VT](https://vt.edu/) VM.
+**Update [01/20/2020]**: The Text Analytics and Machine Learning Teams' report, code and presentations are now available on VtechWorks! Access the content at [this HTTPS URL](https://vtechworks.lib.vt.edu/handle/10919/96226).
+
+**Update [12/18/2020]**: A beta version of the front-end website for querying both the ETD and Tobacco corpora is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)! It is running based on Elastic Search via Ceph on the Kubernetes cluster in the [CS](https://www.cs.vt.edu/)@[VT](https://vt.edu/) VM.
 
 This repository contains code for clustering 2 large text corpora for efficient information retrieval. Please see the [data](https://github.com/pkmandke/cs5604-tml-clustering/tree/master/data) directory for details regarding the ETD and the Tobacco corpora.
 
@@ -14,7 +16,7 @@ To begin with we pre-process the ETD and Tobacco text corpora. Refer to [this](h
 
 1. Convert the entire document to lower case.
 2. Remove punctuations if any.
-3. Tokenize the document using a combination of an improved Tree Bank Tokenizer along with a Punkt Sentence Tokenizer. These are packages together within the [word_tokenizer](https://www.nltk.org/api/nltk.tokenize.html) utility by NLTK.
+3. Tokenize the document using a combination of an improved Tree Bank Tokenizer along with a Punkt Sentence Tokenizer. These are packaged together within the [word_tokenizer](https://www.nltk.org/api/nltk.tokenize.html) utility by NLTK.
 4. Remove all stopwords that appear in the default stopwords list provided by nltk in Section 4.1 [here](https://www.nltk.org/book/ch02.html).
 5. Apply nltk's default [PorterStemmer](https://www.nltk.org/_modules/nltk/stem/porter.html) for stemming the words.
 
@@ -31,10 +33,9 @@ We implement and evaluate the following clustering techniques for the ETD and/or
 3. DBSCAN
 4. BIRCH
 
-<!-- > Incomplete. #TODO: Results and implementation details. -->
 ### Clustering ETD Corpus
 
-> For details of these results, please refer to Chapter 9 [here](https://github.com/pkmandke/CS5604-TML-report).
+> For details of these results, please refer to our report [here (PDF)](https://vtechworks.lib.vt.edu/bitstream/handle/10919/96226/TMLreport.pdf?sequence=15&isAllowed=y).
 
 Using the Doc2Vec vectors generated from the ETD corpus, we employ the below clustering techniques and present their results.
 
@@ -71,7 +72,7 @@ We apply DBSCAN to the ETD corpus on the _Doc2Vec_ embeddings obtained from the 
 
 # Authors
 
-[Prathamesh Mandke](https://pkmandke.github.io/) - I am the maintainer of this repository.
+[Prathamesh Mandke](https://pkmandke.github.io/)
 
 [Sharvari Chougule]()
 
@@ -79,7 +80,7 @@ We apply DBSCAN to the ETD corpus on the _Doc2Vec_ embeddings obtained from the 
 
 # Acknowledgements
 
-To begin with, we would like to thank Dr. Fox for his constant support and encouragement towards taking this work towards completion. We are grateful to all the teams from the CS-5604 class for synergistically ensuring the success of getting the information retrieval system up and running (A beta version is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)). Thanks are also due to [Dr. David Townsend](https://management.pamplin.vt.edu/faculty/directory/townsend-david.html), Assistant Professor at the Pamplin School of Business at Virginia Tech for his insights into understanding the Tobacco corpus to better direct the clustering efforts.
+To begin with, we would like to thank [Dr. Fox]((https://fox.cs.vt.edu/)) for his constant support and encouragement towards taking this work towards completion. We are grateful to all the teams from the CS-5604 class for synergistically ensuring the success of getting the system up and running (A beta version is accessible [here](http://2001.0468.0c80.6102.0001.7015.a60f.cf44.ip6.name:3000/)). Thanks are also due to [Dr. David Townsend](https://management.pamplin.vt.edu/faculty/directory/townsend-david.html), Assistant Professor at the [Pamplin College of Business](https://pamplin.vt.edu/) at Virginia Tech for his insights into understanding the Tobacco corpus to better direct the clustering efforts.
 
 # References
 
